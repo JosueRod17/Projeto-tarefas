@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  font-size: 24px;
+  text-align: center;
+  width: 100vw;
+}
+
+.conteudo {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+form {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(190, 190, 190);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background-color: rgb(160, 160, 160);
+  transform: scale(1.05);
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+a:hover {
+  background-color: #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #222;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.status_{
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status_verde {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status_amarelo {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.botao_pequeno {
+  padding: 5px 8px;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.botao_pequeno_verde {
+  background-color: #28a745;
+  color: white;
+}
+
+.botao_pequeno_vermelho {
+  background-color: #dc3545;
+  color: white;
+}
+
+.formulario-botoes {
+  display: inline;
+}
+
+td.descricao-tarefa {
+  max-width: 300px;
+  width: 300px;
+  word-break: break-word;
+  white-space: normal;
+}
