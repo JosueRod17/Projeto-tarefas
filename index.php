@@ -52,21 +52,31 @@ $tarefas = filtrarTarefas($tarefas, $filtro);
                 <?php foreach ($tarefas as $id => $t): ?> 
                     <tr>
                         <td class="descricao-tarefa">
-                            <?php echo $t['descricao'] ?>
+                            <?php if (isset($_GET['editar']) && $_GET['editar'] == $id): ?>
+                                <form action="tarefas.php" method="POST" style="display: flex; gap: 5px;">
+                                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                                    <input type="text" name="nova_descricao" value="<?php echo htmlspecialchars($t['descricao']) ?>" required>
+                                    <button type="submit" name="acao" value="editar" title="Salvar edição">💾</button>
+                                    <a href="index.php" title="Cancelar edição">❌</a>
+                                </form>
+                            <?php else: ?>
+                                <?php echo htmlspecialchars($t['descricao']) ?>
+                            <?php endif; ?>
                         </td>
                         <td>
-                            <?php echo buscaStatus($t['status']) ?>
+                            <?php echo buscaStatus($t['status']); ?>
                         </td>
-                        <td>
+                        <td class="acoes-tarefa">
                             <form action="tarefas.php" method="POST" class="formulario-botoes">
                                 <input type="hidden" name="id" value="<?php echo $id ?>" />
-
+                                
                                 <?php if ($t['status'] === 'pendente'): ?>
-                                    <button name="acao" value="concluir" class="botao_pequeno_verde" title="Marcar como concluída">✔</button>
+                                    <button name="acao" value="concluir" class="botao_acao botao_verde" title="Concluir">✔</button>
                                 <?php endif; ?>
 
-                                <button name="acao" value="excluir" class="botao_pequeno_vermelho" title="Excluir tarefa">🗑</button>
+                                <button name="acao" value="excluir" class="botao_acao botao_vermelho" title="Excluir">🗑</button>
                             </form>
+                            <a href="?editar=<?php echo $id ?>" class="botao_acao botao_amarelo" title="Editar">✏️</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -6,6 +6,7 @@
 
 html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eee;
 }
 
 h1 {
@@ -14,7 +15,7 @@ h1 {
   padding: 20px;
   font-size: 24px;
   text-align: center;
-  width: 100vw;
+  width: 100%;
 }
 
 .conteudo {
@@ -24,12 +25,14 @@ h1 {
   background-color: #f4f4f4;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 form {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -80,7 +83,7 @@ th, td {
   padding: 14px 16px;
   border-bottom: 1px solid #ddd;
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 th {
@@ -94,7 +97,7 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
-.status_{
+.status_ {
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 13px;
@@ -111,29 +114,49 @@ tr:hover {
   color: #856404;
 }
 
-.botao_pequeno {
-  padding: 5px 8px;
-  font-size: 14px;
-  margin: 5px;
-}
 
-.botao_pequeno_verde {
+.botao_verde {
   background-color: #28a745;
   color: white;
 }
 
-.botao_pequeno_vermelho {
+.botao_vermelho {
   background-color: #dc3545;
   color: white;
+}
+
+.botao_amarelo {
+  background-color: #ffc107;
+  color: #333;
 }
 
 .formulario-botoes {
   display: inline;
 }
 
+/* Estilo da célula de descrição da tarefa */
 td.descricao-tarefa {
   max-width: 300px;
   width: 300px;
   word-break: break-word;
   white-space: normal;
+}
+
+/* Estilo específico para formulário de edição inline */
+td.descricao-tarefa form {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+td.descricao-tarefa input[type="text"] {
+  flex: 1;
+  padding: 6px;
+  font-size: 14px;
+}
+
+td > form.formulario-botoes,
+td > a.botao_amarelo {
+  display: inline-block;
+  margin-top: 5px;
 }

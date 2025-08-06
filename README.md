@@ -9,7 +9,7 @@ Projeto desenvolvido como desafio de 1º mês da Fábrica de Ideias.
 - Bash
 
 ## Funcionalidades
-- Adicionar, excluir tarefas
+- Adicionar, editar e excluir tarefas
 - Salvar em arquivo .txt
 - Filtro por status (pendente/concluído)
 - Script Bash para iniciar o projeto

@@ -1,6 +1,6 @@
 <?php
 
-function validarDescricao($descricao): bool|int {
+function validarDescricao($descricao): bool {
     return preg_match('/^[a-zA-Z0-9çáéíóúãõâêîôû\s\/:.,!?-]+$/i', $descricao);
 }
 
@@ -42,6 +42,15 @@ function salvarTarefas($tarefas) {
     file_put_contents('tarefas.txt', implode("\n", $linhas));
 }
 
+function editarTarefa(array &$tarefas, int $id, string $novaDescricao): void {
+    if (!isset($tarefas[$id])) return;
+
+    $novaDescricao = trim($novaDescricao);
+    if (validarDescricao($novaDescricao)) {
+        $tarefas[$id]['descricao'] = $novaDescricao;
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tarefas = carregarTarefas();
     $acao = $_POST['acao'];
@@ -57,7 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($acao === 'concluir') {
         $id = $_POST['id'];
         $tarefas[$id]['status'] = 'concluida';
-    }
+    }  elseif ($acao === 'editar') {
+    $id = (int)$_POST['id'];
+    $nova = $_POST['nova_descricao'] ?? '';
+    editarTarefa($tarefas, $id, $nova);
+}
 
     salvarTarefas($tarefas);
     header('Location: index.php');
